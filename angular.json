@@ -24,6 +24,7 @@
               "src/assets"
             ],
             "styles": [
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/styles.css"
             ],
             "scripts": []
@@ -119,6 +120,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "takeover-frontend"
+    }
+  },
+  "defaultProject": "takeover-frontend",
+  "cli": {
+    "analytics": "445d57ca-66f3-4f69-81aa-f819e734e78b"
+  }
 }
