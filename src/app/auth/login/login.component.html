@@ -5,12 +5,13 @@
       <div class="card">
         <div class="card-header" style="text-align: center"><h4>로그인</h4></div>
         <div class="card-body">
-          <form [formGroup]="loginForm" (ngSubmit)="login()">
+          <form (ngSubmit)="login()" [formGroup]="loginForm">
             <div class="form-group row">
-              <label for="user_name" class="col-md-4 col-form-label text-md-right">아이디</label>
+              <label class="col-md-4 col-form-label text-md-right" for="user_name">아이디</label>
               <div class="col-md-6">
-                <input type="text" id="user_name" class="form-control" [formControlName]="'username'" name="user_name" required
-                       autofocus>
+                <input [formControlName]="'username'" autofocus class="form-control" id="user_name" name="user_name"
+                       required
+                       type="text">
                 <span *ngIf="!loginForm.get('username').valid && loginForm.get('username').touched">
                   올바른 아이디를 입력하세요.
                 </span>
@@ -18,9 +19,10 @@
             </div>
 
             <div class="form-group row">
-              <label for="password" class="col-md-4 col-form-label text-md-right">비밀번호</label>
+              <label class="col-md-4 col-form-label text-md-right" for="password">비밀번호</label>
               <div class="col-md-6">
-                <input type="password" id="password" class="form-control" [formControlName]="'password'" name="password" required>
+                <input [formControlName]="'password'" class="form-control" id="password" name="password" required
+                       type="password">
                 <span *ngIf="!loginForm.get('password').valid && loginForm.get('password').touched">
                   올바른 아이디를 입력하세요.
                 </span>
@@ -28,13 +30,17 @@
             </div>
 
             <span class="col-md-6 offset-md-4">
-                            <button type="submit" class="login">
+                            <button class="login" type="submit">
                                 Login
                             </button>
                             <span style="padding-left: 15px">Takeover는 처음인가요? <a routerLink="/signup">회원가입</a></span>
                         </span>
-            <div class="login-failed" *ngIf='this.isError'>
-              <p class="login-failed-text">Login Failed. Please check your credentials and try again.</p>
+            <div *ngIf='this.isError' class="login-failed">
+              <p class="login-failed-text">로그인하지 못했어요. 로그인 정보가 올바른지 확인하고, 다시 로그인해보아요.</p>
+            </div>
+            <div *ngIf="this.registerSuccessMessage.length > 0" [ngStyle]="{'background-color': 'green'}"
+                 class="login-failed">
+              <p class="register-success-text">{{registerSuccessMessage}}</p>
             </div>
           </form>
         </div>
