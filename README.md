@@ -1,5 +1,14 @@
 # TakeoverFrontend
 
+Takeover(가칭)의 Frontend repository에요.
+
+## 현재 주요 기능
+- 주제별 포스트 작성/읽기
+- 포스트 코멘트 작성
+
+## 개선 방향
+- Angular > React 전환
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.1.6.
 
 ## Development server
