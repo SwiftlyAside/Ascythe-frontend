@@ -9,6 +9,7 @@ header {
 }
 
 .to-text {
+  font-family: 'Quicksand', sans-serif;
   font-weight: 700;
   height: 50px;
   width: 50px;
@@ -29,6 +30,7 @@ header {
   text-align: center;
   letter-spacing: 1px;
   text-decoration: none;
+  font-family: 'Quicksand', sans-serif;
   font-size: 12px;
   font-weight: 700;
   letter-spacing: .5px;
@@ -59,6 +61,7 @@ header {
   text-align: center;
   letter-spacing: 1px;
   text-decoration: none;
+  font-family: 'Quicksand', sans-serif;
   font-size: 12px;
   font-weight: 700;
   letter-spacing: .5px;
@@ -75,6 +78,7 @@ header {
 
 .dropdown-item {
   background-color: #f8f9fa;
+  font-family: 'Quicksand', sans-serif;
   font-size: 14px;
   font-weight: 500;
   line-height: 18px;
