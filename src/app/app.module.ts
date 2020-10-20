@@ -20,6 +20,8 @@ import { SideBarComponent } from './shared/side-bar/side-bar.component';
 import { TopicSideBarComponent } from './shared/topic-side-bar/topic-side-bar.component';
 import { CreateTopicComponent } from './topic/create-topic/create-topic.component';
 import { CreatePostComponent } from './post/create-post/create-post.component';
+import { ListTopicsComponent } from './topic/list-topics/list-topics.component';
+import {EditorModule} from '@tinymce/tinymce-angular';
 
 @NgModule({
   declarations: [
@@ -33,7 +35,8 @@ import { CreatePostComponent } from './post/create-post/create-post.component';
     SideBarComponent,
     TopicSideBarComponent,
     CreateTopicComponent,
-    CreatePostComponent
+    CreatePostComponent,
+    ListTopicsComponent
   ],
   imports: [
     BrowserModule,
@@ -44,6 +47,7 @@ import { CreatePostComponent } from './post/create-post/create-post.component';
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
     FontAwesomeModule,
+    EditorModule
   ],
   providers: [
     {
