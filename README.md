@@ -1,6 +1,6 @@
-# TakeoverFrontend
+# Ascythe Frontend
 
-Takeover(가칭)의 Frontend repository에요.
+Ascythe(가칭)의 Frontend repository에요.
 
 ## 현재 주요 기능
 - 주제별 포스트 작성/읽기
