@@ -1,4 +1,4 @@
-import {Injectable} from '@angular/core';
+import {EventEmitter, Injectable, Output} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {SignupRequestPayload} from '../signup/signup-request.payload';
 import {Observable, throwError} from 'rxjs';
@@ -11,6 +11,9 @@ import {map, tap} from 'rxjs/operators';
   providedIn: 'root'
 })
 export class AuthService {
+  @Output() loggedIn: EventEmitter<boolean> = new EventEmitter();
+  @Output() username: EventEmitter<string> = new EventEmitter();
+
   refreshTokenPayload = {
     refreshToken: this.getRefreshToken(),
     username: this.getUserName()
