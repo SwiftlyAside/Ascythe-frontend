@@ -1,4 +1,15 @@
-import {HttpErrorResponse, HttpEvent, HttpHandler, HttpInterceptor, HttpRequest} from '@angular/common/http';
+import {
+  HttpErrorResponse,
+  HttpEvent,
+  HttpHandler,
+  HttpHeaderResponse,
+  HttpInterceptor,
+  HttpProgressEvent,
+  HttpRequest,
+  HttpResponse,
+  HttpSentEvent,
+  HttpUserEvent
+} from '@angular/common/http';
 import {BehaviorSubject, Observable, throwError} from 'rxjs';
 import {Injectable} from '@angular/core';
 import {AuthService} from './auth/shared/auth.service';
@@ -15,24 +26,28 @@ export class TokenInterceptor implements HttpInterceptor {
   constructor(public authService: AuthService) {
   }
 
-  intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    const jwtToken = this.authService.getJwtToken();
-    if (jwtToken) {
-      return next.handle(this.addToken(req, jwtToken)).pipe(catchError(error => {
-        if (error instanceof HttpErrorResponse
-          && error.status === 403) {
-          return this.handleAuthErrors(req, next);
-        } else {
-          return throwError(error);
-        }
-      }));
+  intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpSentEvent | HttpHeaderResponse | HttpResponse<any> |
+    HttpProgressEvent | HttpUserEvent<any>> | Observable<HttpEvent<any>> {
+
+    if (req.url.indexOf('refresh') !== -1 || req.url.indexOf('login') !== -1) {
+      return next.handle(req);
     }
-    return next.handle(req);
+    const jwtToken = this.authService.getJwtToken();
+
+    return next.handle(this.addToken(req, jwtToken)).pipe(catchError(error => {
+      if (error instanceof HttpErrorResponse
+        && error.status === 403) {
+        return this.handleAuthErrors(req, next);
+      } else {
+        return throwError(error);
+      }
+    }));
   }
 
   addToken(req: HttpRequest<any>, jwtToken: any): HttpRequest<any> {
     return req.clone({
-      headers: req.headers.set('Authorization', 'Bearer ' + jwtToken)
+      headers: req.headers.set('Authorization',
+        'Bearer ' + jwtToken)
     });
   }
 

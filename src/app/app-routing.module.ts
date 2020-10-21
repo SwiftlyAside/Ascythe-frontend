@@ -6,9 +6,11 @@ import {HomeComponent} from './home/home.component';
 import {CreatePostComponent} from './post/create-post/create-post.component';
 import {CreateTopicComponent} from './topic/create-topic/create-topic.component';
 import {ListTopicsComponent} from './topic/list-topics/list-topics.component';
+import {ViewPostComponent} from './post/view-post/view-post.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
+  {path: 'view-post/:id', component: ViewPostComponent},
   {path: 'list-topics', component: ListTopicsComponent},
   {path: 'create-post', component: CreatePostComponent},
   {path: 'create-topic', component: CreateTopicComponent},

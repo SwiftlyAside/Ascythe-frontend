@@ -22,6 +22,7 @@ import { CreateTopicComponent } from './topic/create-topic/create-topic.componen
 import { CreatePostComponent } from './post/create-post/create-post.component';
 import { ListTopicsComponent } from './topic/list-topics/list-topics.component';
 import {EditorModule} from '@tinymce/tinymce-angular';
+import { ViewPostComponent } from './post/view-post/view-post.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import {EditorModule} from '@tinymce/tinymce-angular';
     TopicSideBarComponent,
     CreateTopicComponent,
     CreatePostComponent,
-    ListTopicsComponent
+    ListTopicsComponent,
+    ViewPostComponent
   ],
   imports: [
     BrowserModule,
