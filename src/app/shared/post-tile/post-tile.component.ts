@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {PostService} from '../post.service';
 import {PostModel} from '../post-model';
 import {faComments} from '@fortawesome/free-solid-svg-icons';
@@ -10,7 +10,7 @@ import {Router} from '@angular/router';
   styleUrls: ['./post-tile.component.css']
 })
 export class PostTileComponent implements OnInit {
-  posts: Array<PostModel>;
+  @Input() posts: Array<PostModel>;
   faComments = faComments;
 
   constructor(private router: Router, private postService: PostService) {
